@@ -1,9 +1,12 @@
 version: '3'
 services:
   datadog:
-    image: gcr.io/datadoghq/agent:7
+    # image: gcr.io/datadoghq/agent:7
+    build: 
+      context: .
+      dockerfile: Dockerfile
     container_name: dd-agent
-    pid: host
+    # pid: host
     environment:
      - DD_API_KEY=${DD_API_KEY}
      - DD_SITE=datadoghq.com
